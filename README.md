@@ -4,11 +4,11 @@ This is a Spring Cloud microservice project for coupon management.
 
 ## environment
 
-java 8
-Spring Cloud Greenwich
-MySQL 8.0.32
-Redis
-Kafka
+* java 8
+* Spring Cloud Greenwich
+* MySQL 8.0.32
+* Redis
+* Kafka
 
 ## services
 

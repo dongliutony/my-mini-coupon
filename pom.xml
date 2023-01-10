@@ -8,11 +8,11 @@
     <artifactId>mini-coupon</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!--    <modules>-->
-    <!--        <module>coupon-eureka</module>-->
-    <!--        <module>coupon-gateway</module>-->
-    <!--        <module>coupon-service</module>-->
-    <!--    </modules>-->
+    <modules>
+        <module>coupon-eureka</module>
+        <module>coupon-gateway</module>
+        <module>coupon-service</module>
+    </modules>
 
     <name>mini-coupon</name>
     <description>SpringCloud Project For Mini Coupon</description>

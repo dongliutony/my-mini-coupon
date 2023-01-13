@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: coupon-eureka
+
+server:
+  port: 8001
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+
+    # Specify if current server will fetch registry info from Eureka Server. Since this is a single-node deployment,
+    # set the value as "false" (default is "true")
+    fetch-registry: false
+
+    # Specify if registry current service to Eureka Server (default "true").
+    register-with-eureka: false
+
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+
+    # display warning on Eureka portal if less heartbeats than specified here receive.
+#    renewal-percent-threshold: 0.45

@@ -38,10 +38,10 @@ Below are the workable versions, and higher versions may need to do some double 
        1. **calculate with coupons:**
 
    5. #### coupon-permission
-      1. **manage path for microservice controllers:**
+      1. **path cration:**
       
-         Add other microservice controller's URL/path into permission module. It provides API's to offload
-      such management to PM or operation teams.
+         Add other microservice controller's URL/path into permission module. It provides APIs to offload
+      such management from developers to PM or operation teams.
          ```
          fas 
          ```
@@ -56,10 +56,13 @@ Below are the workable versions, and higher versions may need to do some double 
        - run zookeeper first `/kafka_directory/bin/zookeeper-server-start.sh -daemon config/zookeeper.properties`
        - use `jpa` and check if zookeeper Java ps is ready
        - run kafka when zookeeper is ready `nohup /kafka_directory/bin/kafka-server-start.sh config/server.properties &`
-   4. For Eureka server cluster deployment on one server node, run
-      `mvn clean package -Dmaven.test.skip=true -U` to build jar, add items with format `eureka-server1 127.0.0.1`
-      in the /etc/hosts file. Then run `java -jar coupon-eureka-1.0-SNAPSHOP.jar --spring.profiles.active=eureka-server1` to
+   4. **boot up Eureka:** For Eureka server cluster deployment on one server node, run
+      `mvn clean package -Dmaven.test.skip=true -U` to build jar, add items with format `127.0.0.1 eureka-server1`
+      in the /etc/hosts file (make sure that a microservice's application.yml has configuration like eureka:
+      client: service-url: defaultZone: http://eureka-server1:8001/eureka/). 
+      Then run `java -jar coupon-eureka-1.0-SNAPSHOP.jar --spring.profiles.active=eureka-server1` to
       boot up 1st node, then boot up the rest.
+   5. **boot up Zuul:** 
 
 ## 5. how to run business service modules
 
@@ -94,6 +97,8 @@ coupon-eureka, coupon-gateway and run the jar files with `java -jar xx.jar`.
 
 - ### SpringBoot & Starter
 
+- ### universal Response Advice & Exception Handler
+
 - ### JPA, Field converter, & object serialization
   - JPA is the standard for ORM, while Hibernate is an implementation. We write JPA interface and let
   AOP do the magic. 
@@ -111,7 +116,7 @@ coupon-eureka, coupon-gateway and run the jar files with `java -jar xx.jar`.
   ```
   - Entity's partArgsConstructor: we normally define ID as a PrimaryKey and created by db, not by entity constructor.
 
-- ### Feign and VO
+- ### Feign, inter modules communication, SDK, and VO
 
 - ### Async tasks
 
@@ -121,11 +126,11 @@ coupon-eureka, coupon-gateway and run the jar files with `java -jar xx.jar`.
 
 - ### Kafka
 
-- ### Bean Post Processor
+- ### Bean Post Processor (BPP)
 
 - ### Spring eventListener
 
-- ### Integration test environment for Spring Cloud project
+- ### integration test environment for Spring Cloud project
 
 - ### some pitfalls
 

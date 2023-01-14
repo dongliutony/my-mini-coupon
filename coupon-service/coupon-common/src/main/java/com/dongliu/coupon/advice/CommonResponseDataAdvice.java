@@ -2,19 +2,19 @@ package com.dongliu.coupon.advice;
 
 import com.dongliu.coupon.annotation.IgnoreResponseAdvice;
 import com.dongliu.coupon.vo.CommonResponse;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import java.util.Objects;
 
 /**
- * <h1>Universal response for RestRequest</h1>
+ * <h1>Global response for RestRequest</h1>
  * response as JSON. Don't use it for other response format.
  */
 @RestControllerAdvice
@@ -24,7 +24,7 @@ public class CommonResponseDataAdvice implements ResponseBodyAdvice<Object> {
      * @return true: use beforeBodyWrite() to wrap original response; false: not wrap
      */
     @Override
-    public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
+    public boolean supports(MethodParameter methodParameter, @NonNull Class<? extends HttpMessageConverter<?>> aClass) {
         // if the controller class has a @IgnoreResponseAdvice, don't wrap it
         if (methodParameter.getDeclaringClass().isAnnotationPresent(IgnoreResponseAdvice.class)) {
             return false;
@@ -43,6 +43,7 @@ public class CommonResponseDataAdvice implements ResponseBodyAdvice<Object> {
      * Process a response before it returns
      */
     @Override
+    @SuppressWarnings("all")
     public Object beforeBodyWrite(Object o,
                                   MethodParameter methodParameter,
                                   MediaType mediaType,

@@ -19,7 +19,7 @@ public class TokenFilter extends AbsPreZuulFilter{
 
         Object token = request.getParameter("token");
         if (null == token) {
-            log.error("error: token param is missing.");
+            log.error("||| error: token param is missing.");
             return fail(401, "token missing");
         }
 

@@ -26,7 +26,7 @@ public class AccessLogFilter extends AbsPostZuulFilter{
         String uri = request.getRequestURI();
         long duration = System.currentTimeMillis() - startTime;
 
-        log.info("uri: {}, duration: {}ms", uri, duration);
+        log.info("<<< uri: {}, duration: {}ms", uri, duration);
 
         return success();
     }

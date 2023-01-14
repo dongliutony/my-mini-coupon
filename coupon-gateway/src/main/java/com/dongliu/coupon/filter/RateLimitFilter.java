@@ -27,7 +27,7 @@ public class RateLimitFilter extends AbsPreZuulFilter {
             return success();
         } else {
             log.error("reached rate limit: {}", request.getRequestURI());
-            return fail(402, "error: rate limit");
+            return fail(429, "error: too many requests");
         }
     }
 

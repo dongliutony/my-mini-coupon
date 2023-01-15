@@ -60,8 +60,9 @@ And other modules will also do a expiration check when they call the coupon temp
 
 ### async tasks
 1. **why async tasks:**
-We create many coupon codes based on a Coupon Template in a batch. It is time costly. If use sync operation, the thread
-will be blocked for a while. That is not ideal. Using async tasks can increase service performance.
+
+    We create many coupon codes based on a Coupon Template in a batch. It is time costly. If use sync operation, the thread
+    will be blocked for a while. That is not ideal. Using async tasks can increase service performance.
 
 2. **how to add async task:**
     ```
@@ -69,6 +70,17 @@ will be blocked for a while. That is not ideal. Using async tasks can increase s
     2. add /service/AsyncCouponCodeCreateImpl asyncService ->
     3. call asyncService in /IBuildTemplateService -> 
     ```
+
+### scheduled tasks
+1. **why scheduled tasks:**
+
+   We create many coupon codes based on a Coupon Template in a batch. It is time costly. If use sync operation, the thread
+   will be blocked for a while. That is not ideal. Using async tasks can increase service performance.
+
+2. **how to add scheduled task:**
+
+    Enable at the entry class Application `@Enable Scheduling`.
+    Create a @Component class, add scheduled task as a method with `@Scheduled(fixedRate = 60 * 60 * 1000)`.
 
 ## how to test
 1. run `test/.../BuildTemplateTest` to insert a couponTemplate into db and 10000 coupon code into redis

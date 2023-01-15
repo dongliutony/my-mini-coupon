@@ -14,6 +14,10 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * <h1>Scheduled tasks</h1>
+ * Periodically run in a separate thread.
+ */
 @Slf4j
 @Component
 public class ScheduledTask {
@@ -26,10 +30,9 @@ public class ScheduledTask {
     }
 
     /**
-     * <h2>Scheduled task: offline expired template</h2>
+     * <h2>offline expired template</h2>
      * Periodically invoked in a separated thread to check if CouponTemplates expired. If one template is expired,
      * modify its expired to "true" in db.
-     *
      * Be noted: we don't periodically check if an issued Coupon is expired until users attempt to use it. Coupon in
      * Redis will be kept forever.
      */

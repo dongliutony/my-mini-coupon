@@ -3,6 +3,7 @@ package com.dongliu.coupon.service.impl;
 import com.dongliu.coupon.entity.CouponTemplate;
 import com.dongliu.coupon.exception.CouponException;
 import com.dongliu.coupon.repository.CouponTemplateRepository;
+import com.dongliu.coupon.service.IAsyncCouponCodeCreation;
 import com.dongliu.coupon.service.IBuildTemplateService;
 import com.dongliu.coupon.vo.TemplateRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -13,10 +14,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class BuildTemplateServiceImpl implements IBuildTemplateService {
     private CouponTemplateRepository templateRepository;
+    private final IAsyncCouponCodeCreation asyncService;
 
     @Autowired
-    public BuildTemplateServiceImpl(CouponTemplateRepository templateRepository) {
+    public BuildTemplateServiceImpl(CouponTemplateRepository templateRepository, IAsyncCouponCodeCreation asyncService) {
         this.templateRepository = templateRepository;
+        this.asyncService = asyncService;
     }
 
     @Override
@@ -35,7 +38,8 @@ public class BuildTemplateServiceImpl implements IBuildTemplateService {
         CouponTemplate template = requestToTemplate(request);
         templateRepository.save(template);
 
-        // TODO: async generate coupon codes. It is a time costly task.
+        // async generate coupon codes. It is a time costly task.
+        asyncService.asyncCreateCouponByTemplate(template);
 
         return template;
     }

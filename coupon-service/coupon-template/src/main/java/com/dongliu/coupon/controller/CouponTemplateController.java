@@ -64,6 +64,11 @@ public class CouponTemplateController {
         return templateBaseService.findAllUsableTemplate();
     }
 
+    /**
+     * <h2>find templates by IDs</h2>
+     * 127.0.0.1:7001/coupon-template/template/sdk/infos?ids=1,2,3
+     * 127.0.0.1:9000/my-coupon/coupon-template/template/sdk/infos?ids=1,2,3
+     * */
     @GetMapping("/template/sdk/infos")
     public Map<Integer, CouponTemplateSDK> findIds2TemplateSDK(
             @RequestParam("ids") Collection<Integer> ids

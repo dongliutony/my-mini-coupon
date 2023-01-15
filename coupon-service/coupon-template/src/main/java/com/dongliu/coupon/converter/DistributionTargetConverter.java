@@ -7,14 +7,14 @@ import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
 @Converter
-public class DistributionTargetConverter implements AttributeConverter<DistributionTarget, String> {
+public class DistributionTargetConverter implements AttributeConverter<DistributionTarget, Integer> {
     @Override
-    public String convertToDatabaseColumn(DistributionTarget target) {
-        return JSON.toJSONString(target);
+    public Integer convertToDatabaseColumn(DistributionTarget target) {
+        return target.getCode();
     }
 
     @Override
-    public DistributionTarget convertToEntityAttribute(String s) {
-        return JSON.parseObject(s, DistributionTarget.class);
+    public DistributionTarget convertToEntityAttribute(Integer code) {
+        return DistributionTarget.of(code);
     }
 }

@@ -55,3 +55,23 @@ And other modules will also do a expiration check when they call the coupon temp
 
 ## code structure
 
+
+## coding 
+
+### async tasks
+1. **why async tasks:**
+We create many coupon codes based on a Coupon Template in a batch. It is time costly. If use sync operation, the thread
+will be blocked for a while. That is not ideal. Using async tasks can increase service performance.
+
+2. **how to add async task:**
+    ```
+    1. add /config/AsyncPoolConfig implements AsyncConfigurer -> configure custom async task thread pool
+    2. add /service/AsyncCouponCodeCreateImpl asyncService ->
+    3. call asyncService in /IBuildTemplateService -> 
+    ```
+
+## how to test
+1. run `test/.../BuildTemplateTest` to insert a couponTemplate into db and 10000 coupon code into redis
+2. check db `select * from coupon_template`. Using `truncate coupon_template` if we need to manually redo the test
+3. check redis keys `keys *`; check key type `type coupon_template_code_1`; 
+   check values `lrange coupon_template_code_1 0 -1`. Using `flushall` if we need to redo tests and clean redis.

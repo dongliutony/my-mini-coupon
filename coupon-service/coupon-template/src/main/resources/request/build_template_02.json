@@ -1,0 +1,29 @@
+{
+  "available": 0,
+  "category": "002",
+  "count": 1000,
+  "desc": "The 2nd template",
+  "logo": "http://www.mycoupon.com/123",
+  "name": "Coupon_02",
+  "productLine": "1",
+  "rule": {
+    "discount": {
+      "base": 1,
+      "quota": 85
+    },
+    "expiration": {
+      "deadline": 1589984421588,
+      "gap": 1,
+      "period": 1
+    },
+    "limitation": 1,
+    "usage": {
+      "city": "Los Altos",
+      "goodsType": "[1,3]",
+      "state": "California"
+    },
+    "weight": "[\"1001201909060001\"]"
+  },
+  "target": "1",
+  "userId": 10001
+}

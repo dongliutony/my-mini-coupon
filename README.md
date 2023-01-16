@@ -2,6 +2,8 @@
 
 This is a Spring Cloud microservice project for coupon management.
 
+Test using Jetbrains Remote Development...
+
 ## 1. environment
 
 Below are the workable versions, and higher versions may need to do some double check to make things work together.

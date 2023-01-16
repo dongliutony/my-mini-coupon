@@ -18,12 +18,14 @@ Settle a coupon by calculating the final total price when using coupons.
 
 
 ## data schema and cache design
-* coupon_template table:
-    * id
-
 
 * coupon table
-    * id
+  * id
+  * template_id
+  * user_id
+  * coupon_code
+  * assign_at
+  * status
 
 
 * cache-key

@@ -37,15 +37,6 @@ And other modules will also do a expiration check when they call the coupon temp
   * rule
 
 
-* coupon table
-  * id
-  * template_id
-  * user_id
-  * coupon_code
-  * assign_at
-  * status
-
-
 * cache-key
   * coupon_code_(template_id), value: List<CouponCode>
   * user_coupon_usable_(), value: {coupon_id: coupon_info}

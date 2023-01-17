@@ -36,6 +36,23 @@ Settle a coupon by calculating the final total price when using coupons.
 
 ## coding
 
+### Feign client
+Use Feign to provide load-balance and fallback
+in Application.java, use 
+
+  ```
+        @Bean
+        @LoadBalanced
+        RestTemplate restTemplate() {
+            return new RestTemplate();
+        }
+  ```
+
+### Redis Service
+
+### Kafka Template 
+
+
 
 ## how to test
 

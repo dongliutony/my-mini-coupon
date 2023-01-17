@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApplyTemplateRequest {
+public class AcquireTemplateRequest {
     private Long userId;
 
     private CouponTemplateSDK templateSDK;

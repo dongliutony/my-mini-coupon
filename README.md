@@ -143,9 +143,10 @@ coupon-eureka, coupon-gateway and run the jar files with `java -jar xx.jar`.
 ## 8. plans
    - [ ] enhance gateway with more filters: check by url to do validation, query result cache, etc
    - [ ] custom Kafka pipeline: directly send KafkaMessage into MQ without manually serialize/deserialize ops.
-   - [ ] validation module
-   - [ ] tracing
-   - [ ] logging
+   - [ ] enhance validation
+   - [ ] request tracing
+   - [ ] in-memory db, redis, kafka for Unittest
+   - [ ] distributed logging ELK
    - [ ] monitor module
    - [ ] docker composer configuration
    - [ ] front end

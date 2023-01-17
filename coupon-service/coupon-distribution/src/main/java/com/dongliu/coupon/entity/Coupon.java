@@ -23,6 +23,7 @@ import java.util.Date;
 @JsonSerialize(using = CouponSerializer.class)
 public class Coupon {
 
+    /** db generated ID, not Coupon Code */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -34,6 +35,7 @@ public class Coupon {
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
+    /** identify a coupon in coupon obj. created by template async task */
     @Column(name = "coupon_code", nullable = false)
     private String couponCode;
 

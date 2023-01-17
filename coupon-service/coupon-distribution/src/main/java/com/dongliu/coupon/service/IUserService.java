@@ -2,7 +2,7 @@ package com.dongliu.coupon.service;
 
 import com.dongliu.coupon.entity.Coupon;
 import com.dongliu.coupon.exception.CouponException;
-import com.dongliu.coupon.vo.ApplyTemplateRequest;
+import com.dongliu.coupon.vo.AcquireTemplateRequest;
 import com.dongliu.coupon.vo.CouponTemplateSDK;
 import com.dongliu.coupon.vo.SettlementInfo;
 
@@ -20,8 +20,8 @@ public interface IUserService {
 
     List<CouponTemplateSDK> findAvailableTemplates(Long userId) throws CouponException;
 
-    Coupon applyTemplate(ApplyTemplateRequest request) throws CouponException;
+    Coupon applyByTemplate(AcquireTemplateRequest request) throws CouponException;
 
-    SettlementInfo settlement(SettlementInfo info) throws CouponException;
+    SettlementInfo evaluateSettlement(SettlementInfo info) throws CouponException;
 
 }

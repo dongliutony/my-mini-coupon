@@ -24,12 +24,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-        <!-- Hystrix to provide break-circuit and fallback -->
+        <!-- Hystrix to provide circuit breaker and fallback -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
-        <!-- Ribbon for microservices consumer's load-balancing -->
+        <!-- Ribbon/Feign for microservices consumer's load-balancing.  -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>

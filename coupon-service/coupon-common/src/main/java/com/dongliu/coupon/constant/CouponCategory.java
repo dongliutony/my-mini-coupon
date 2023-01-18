@@ -10,12 +10,12 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 public enum CouponCategory {
 
-    EXCEED_RETURN("Return some money with exceeding fixed price", "001"),
+    THRESHOLD("Return some money with exceeding fixed price", "001"),
     DISCOUNT("Give discount", "002"),
-    INSTANT_RETURN("Unconditional return some money", "003");
+    INSTANT("Unconditional return some money", "003");
 
-    private String description;
-    private String code;
+    private final String description;
+    private final String code;
 
     public static CouponCategory of(String code) {
 

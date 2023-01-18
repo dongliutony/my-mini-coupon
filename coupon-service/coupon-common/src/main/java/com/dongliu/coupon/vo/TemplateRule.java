@@ -57,16 +57,16 @@ public class TemplateRule {
     @AllArgsConstructor
     public static class Discount{
 
-        // discount amount: eg EXCEED_RETURN(20) means return $20 when total price exceeds a base line,
+        // discount amount: e.g. THRESHOLD(20) means return $20 when total price exceeds a base line,
         // DISCOUNT(85) means 15% off,
-        // INSTANT_RETURN(20) means return $20 without extra condition required.
-        private Integer quota;
+        // INSTANT(20) means return $20 without extra condition required.
+        private Integer credit;
 
         // valid for EXCEED_RETURN type. the minimum total price that makes a coupon valid to be used.
         private Integer base;
 
         boolean validate() {
-            return quota > 0 && base > 0;
+            return credit > 0 && base > 0;
         }
     }
 

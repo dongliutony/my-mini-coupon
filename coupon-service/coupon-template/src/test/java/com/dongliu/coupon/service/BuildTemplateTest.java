@@ -8,7 +8,6 @@ import com.dongliu.coupon.constant.ProductLine;
 import com.dongliu.coupon.vo.TemplateRequest;
 import com.dongliu.coupon.vo.TemplateRule;
 import org.apache.commons.lang3.time.DateUtils;
-import org.apache.commons.math.distribution.Distribution;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +46,7 @@ public class BuildTemplateTest {
         request.setName("CouponTemplate-" + new Date().getTime());
         request.setLogo("http://www.mycoupon.com/logo/test1");
         request.setDesc("This is a testing template");
-        request.setCategory(CouponCategory.EXCEED_RETURN.getCode());
+        request.setCategory(CouponCategory.THRESHOLD.getCode());
         request.setProductLine(ProductLine.Kitty.getCode());
         request.setCount(10000);
         request.setUserId(10001L);  // fake user id

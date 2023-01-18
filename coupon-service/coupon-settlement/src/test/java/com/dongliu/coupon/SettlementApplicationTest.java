@@ -1,6 +1,7 @@
 package com.dongliu.coupon;
 
 import junit.framework.TestCase;
+import org.aspectj.lang.annotation.Aspect;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

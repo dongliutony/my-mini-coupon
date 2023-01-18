@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Arrays;
 import java.util.Collections;
 
-@Slf4j
+@Slf4j(topic = "ExecutorManagerTest")
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class ExecutorManagerTest {

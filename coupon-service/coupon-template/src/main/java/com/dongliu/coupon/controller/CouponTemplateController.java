@@ -1,6 +1,8 @@
 package com.dongliu.coupon.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.dongliu.coupon.annotation.CouponPermission;
+import com.dongliu.coupon.annotation.IgnorePermission;
 import com.dongliu.coupon.entity.CouponTemplate;
 import com.dongliu.coupon.exception.CouponException;
 import com.dongliu.coupon.service.IBuildTemplateService;
@@ -35,6 +37,7 @@ public class CouponTemplateController {
      * 127.0.0.1:9000/my-coupon/coupon-template/template/build
      * */
     @PostMapping("/template/build")
+    @CouponPermission(description = "buildTemplate", readOnly = false)
     public CouponTemplate buildTemplate(@RequestBody TemplateRequest request)
             throws CouponException {
         log.info("Build Template: {}", JSON.toJSONString(request));
@@ -47,6 +50,7 @@ public class CouponTemplateController {
      * 127.0.0.1:9000/my-coupon/coupon-template/template/info?id=1
      * */
     @GetMapping("/template/info")
+    @CouponPermission(description = "getTemplateInfo")
     public CouponTemplate buildTemplateInfo(@RequestParam("id") Integer id)
             throws CouponException {
         log.info("Build Template Info For: {}", id);
@@ -59,6 +63,7 @@ public class CouponTemplateController {
      * 127.0.0.1:9000/my-coupon/coupon-template/template/sdk/all
      * */
     @GetMapping("/template/sdk/all")
+    @IgnorePermission
     public List<CouponTemplateSDK> findAllUsableTemplate() {
         log.info("Find All Usable Template.");
         return templateBaseService.findAllUsableTemplate();
